@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Amazon's Product List</title>
+  <i class="fa fa-search"></i>
   <link rel="stylesheet" type="text/css" href="./styles.css">
   <script src="./scripts.js" defer></script>
 </head>
@@ -13,7 +14,10 @@
 
   <header class="header">
     <h1 class="header__title">Products List</h1>
-    <input type="search" class="search-input">
+    <form action="" class="form">
+      <i class="search-icon"><img src="./assets/search-icon.svg" alt="search icon"></i>
+      <input type="search" class="search-input" placeholder="Pesquisar" name="search-input">
+    </form>
   </header>
   <main class="product-container">
     <div class="product-card">
