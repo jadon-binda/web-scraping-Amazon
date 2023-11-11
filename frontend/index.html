@@ -19,15 +19,19 @@
       <input type="search" class="search-input" placeholder="Pesquisar" name="search-input">
     </form>
   </header>
-  <main class="product-container">
+  <main class="container-product">
     <div class="product-card">
-      <img src="#" alt="product" class="card__image">
-      <h2 class="card__title">Product Name</h2>
-      <i class="star__icon">
-        <span class="card__rating">5 of 5 Stars</span>
-      </i>
-      <span class="card__reviews">6500</span>
-      <span class="card__price">3000</span>
+      <div class="container-image">
+        <img src="https://m.media-amazon.com/images/I/81Z1xBs6GoL._AC_UL320_.jpg" alt="product" class="card__image">
+      </div>
+      <div class="card__infos">
+        <h2 class="card__title">Product Name</h2>
+        <div class="rating__wrapper">
+          <img src="./assets/star-solid.svg" alt="stars" class="star__small">
+          <span class="card__reviews">6500</span>
+        </div>
+        <span class="card__price">3000</span>
+      </div>
     </div>
   </main>
 
