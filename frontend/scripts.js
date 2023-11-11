@@ -9,31 +9,31 @@ const fetchProducts = async () => {
 };
 
 const loadProducts = async () => {
-  const data = await fetchProducts();
+  const productsList = await fetchProducts();
 
-  data.map((product) => {
+  productsList.map((product) => {
     const card = document.createElement('div');
-    card.classList.add('product-card');
-    containerProduct.append(card);
     const containerImage = document.createElement('div');
-    containerImage.classList.add('container-image');
-    card.append(containerImage);
     const image = document.createElement('img');
+    const cardInfo = document.createElement('div');
+    const title = document.createElement('h2');
+    const ratingWrapper = document.createElement('div');
+    const nStars = setStars(product.rating);
+    const reviews = document.createElement('span');
+    const price = document.createElement('span');
+
+    card.classList.add('product-card');
+    containerImage.classList.add('container-image');
     image.classList.add('card__image');
-    containerImage.append(image);
+    cardInfo.classList.add('card__infos');
+    title.classList.add('card__title');
+    ratingWrapper.classList.add('rating__wrapper');
+    reviews.classList.add('card__reviews');
+    price.classList.add('card__price');
+
     image.src = product.imageURL;
     image.alt = product.title;
-    const cardInfo = document.createElement('div');
-    cardInfo.classList.add('card__infos');
-    card.append(cardInfo);
-    const title = document.createElement('h2');
-    title.classList.add('card__title');
-    cardInfo.append(title);
     title.textContent = product.title;
-    const ratingWrapper = document.createElement('div');
-    ratingWrapper.classList.add('rating__wrapper');
-    cardInfo.append(ratingWrapper);
-    const nStars = setStars(product.rating);
     for (let i = 0; i < nStars; i++) {
       const star = document.createElement('img');
       star.classList.add('star__small');
@@ -41,14 +41,17 @@ const loadProducts = async () => {
       star.src = './assets/star-solid.svg';
       star.alt = 'star';
     }
-    const reviews = document.createElement('span');
-    reviews.classList.add('card__reviews');
-    ratingWrapper.append(reviews);
     reviews.textContent = product.reviews;
-    const price = document.createElement('span');
-    price.classList.add('card__price');
-    cardInfo.append(price);
     price.textContent = setCurrency(product.price);
+
+    containerProduct.append(card);
+    card.append(containerImage);
+    containerImage.append(image);
+    card.append(cardInfo);
+    cardInfo.append(title);
+    cardInfo.append(ratingWrapper);
+    ratingWrapper.append(reviews);
+    cardInfo.append(price);
   })
 };
 
