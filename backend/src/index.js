@@ -1,5 +1,5 @@
 const express = require('express');
-const router = require('./scrapeAPI');
+const router = require('./api/scrapingAmazon');
 const app = express();
 const cors = require('cors');
 

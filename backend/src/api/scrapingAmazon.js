@@ -3,8 +3,10 @@ const cheerio = require('cheerio');
 const { Router } = require('express');
 const router = Router();
 
-router.get('/products', (req, res) => {
-  const url = 'https://www.amazon.com.br/s?k=playstation+5&crid=1QKRN7Y2RKZ8J&sprefix=plays%2Caps%2C293&ref=nb_sb_ss_ts-doa-p_1_5';
+router.get('/products/:k', (req, res) => {
+  const { k } = req.params;
+  const keyword = k.replace(' ', '+').trim();
+  const url = `https://www.amazon.com.br/s?k=${keyword}&crid=1QKRN7Y2RKZ8J&sprefix=plays%2Caps%2C293&ref=nb_sb_ss_ts-doa-p_1_5`;
   const UAStrings = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0",
     "Mozilla/5.0 (Linux; Android 12; SM-S906N Build/QP1A.190711.020; wv) AppleWebKit/537.36\
