@@ -3,6 +3,7 @@ import setStars from '../utils/setStars.js';
 const containerProduct = document.querySelector('.container-product');
 const form = document.querySelector('.form');
 const input = document.querySelector('.search__input');
+const searchIcon = document.querySelector('.search__icon');
 
 const fetchProducts = async (keyword) => {
   if (keyword) {
@@ -107,11 +108,16 @@ const loadSearchProducts = async (productsList) => {
   })
 };
 
-const loadSearchPage = async (event) => {
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
   const productsList = await fetchProducts(input.value.toLowerCase());
   loadSearchProducts(productsList);
   input.value = '';
-}
+});
 
-form.addEventListener('submit', (event) => loadSearchPage(event));
+searchIcon.addEventListener('click', async () => {
+  if (!input.value) return;
+  const productsList = await fetchProducts(input.value.toLowerCase());
+  loadSearchProducts(productsList);
+  input.value = '';
+});
