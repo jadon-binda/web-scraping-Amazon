@@ -29,7 +29,7 @@ body {
   position: relative;
 }
 
-.search-input {
+.search__input {
   width: 100%;
   height: 38px;
   padding: 7px 10px;
@@ -40,17 +40,18 @@ body {
   outline: none;
 }
 
-.search-input:focus {
+.search__input:focus {
   outline: 2px solid #ff9900;
 }
 
-.search-icon {
+.search__icon {
   display: inline-block;
   width: 30px;
   height: 30px;
   position: absolute;
   top: 5px;
   right: 15px;
+  cursor: pointer;
 }
 
 .container-product {
